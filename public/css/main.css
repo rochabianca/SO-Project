@@ -15,3 +15,11 @@
 .start-window {
   margin-top: 15%;
 }
+
+.pigeon {
+  position: absolute;
+  bottom: 60px;
+}
+.pigeon img {
+  width: 60px;
+}

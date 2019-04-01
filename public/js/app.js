@@ -11,6 +11,10 @@ $('[data-target="create-dove"]').on('click', function(e) {
   $('#CreateDove').modal('toggle');
 });
 
+function HelloWorld() {
+  print('hello');
+}
+
 // cria o usuario
 $('[data-target="create-user"]').on('click', function(e) {
   e.preventDefault();
