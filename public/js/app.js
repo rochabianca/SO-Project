@@ -1,5 +1,6 @@
 var countUsers = 0;
 var countDoves = 0;
+// cria o pombo
 $('[data-target="create-dove"]').on('click', function(e) {
   e.preventDefault();
   countDoves = 1;
@@ -10,6 +11,7 @@ $('[data-target="create-dove"]').on('click', function(e) {
   $('#CreateDove').modal('toggle');
 });
 
+// cria o usuario
 $('[data-target="create-user"]').on('click', function(e) {
   e.preventDefault();
   countUsers++;
@@ -21,6 +23,7 @@ $('[data-target="create-user"]').on('click', function(e) {
   $('#CreateUser').modal('toggle');
 });
 
+// verifica se existe ao menos um usuario e um pombo
 $(document).ready(function() {
   setInterval(function() {
     var dove = $('[data-target="dove"]').html().length;
