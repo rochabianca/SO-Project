@@ -26,7 +26,7 @@
         <div class="row">
           <div class="col-md-3 text-center bg-white mx-auto p-3 rounded-lg box-shadow start-window">
             <h3 class="lead ">Trabalho de SO</h3>
-            <div class="my-3">
+            <div data-target="buttons" class="my-3">
               <button class="btn btn-info" data-toggle="modal" data-target="#CreateDove">
                 Criar Pombo
                 <div><i class="fas fa-dove"></i></div>
@@ -36,8 +36,14 @@
                 <div><i class="fas fa-user"></i></div>
               </button>
             </div>
-            <div data-target="users"></div>
-            <div data-target="dove"></div>
+
+            <span data-target="users"></span>
+            <span data-target="dove"></span>
+            <div style="display:none" data-target="start" class="pt-3">
+              <button class="btn btn-success btn-block">
+                Começar
+              </button>
+            </div>
           </div>
         </div>
         <!-- Fim tela inicial -->

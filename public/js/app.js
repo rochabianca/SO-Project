@@ -13,9 +13,35 @@ $('[data-target="create-dove"]').on('click', function(e) {
 $('[data-target="create-user"]').on('click', function(e) {
   e.preventDefault();
   countUsers++;
-  console.log('criou pombo');
+  console.log('criou usuario');
   $('[data-target="users"]').append(
     '<span class="m-1 badge badge-primary">' + countUsers + ' <i class="fas fa-user"></i></span>'
   );
+
   $('#CreateUser').modal('toggle');
+});
+
+$(document).ready(function() {
+  setInterval(function() {
+    var dove = $('[data-target="dove"]').html().length;
+    var users = $('[data-target="users"]').html().length;
+    if (users > 0 && dove > 0) {
+      $('[data-target="start"]').css({ display: 'block' });
+    }
+  }, 300);
+});
+
+$('[data-target="start"]').click(function() {
+  $('[data-target="buttons"]').css({ display: 'none' });
+  $('[data-target="start"]').html(
+    '<button data-target="stop" class="btn btn-danger btn-block">Parar Processo</button>'
+  );
+});
+
+$('[data-target="stop"]').click(function() {
+  console.log('stop');
+  $('[data-target="buttons"]').css({ display: 'block' });
+  $('[data-target="start"]').html(
+    '<button data-target="start" class="btn btn-success btn-block">Começar</button>'
+  );
 });
