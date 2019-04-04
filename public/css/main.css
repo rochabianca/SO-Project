@@ -33,3 +33,7 @@ body {
   bottom: 40px;
   width: 60px;
 }
+
+.dove {
+  cursor: pointer;
+}

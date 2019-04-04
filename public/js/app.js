@@ -4,6 +4,7 @@ var maximoCaixaMensagens = 0;
 
 function updateCaixaMensagens(numeroDeMensagens) {
   // atualizar o numero de mensagens no icone
+  atualizarCaixaDeEntrada(numeroDeMensagens);
 }
 
 function mudancaEstadoPomboCorreio(estado) {
@@ -18,13 +19,20 @@ $('[data-target="create-dove"]').on('click', function(e) {
   e.preventDefault();
   countDoves = 1;
   //numero mensagens, tempo carga, tempo voo, tempo descarga
-  javaobj.criarPombo(10, 3, 10, 3);
+  // javaobj.criarPombo(10, 3, 10, 3);
   $('[data-target="dove"]').html(
-    '<span class="m-1 badge badge-info">' + countDoves + ' <i class="fas fa-dove"></i></span>'
+    '<span data-target="kill-dove" class="m-1 badge badge-info dove">' +
+      countDoves +
+      ' <i class="fas fa-dove"></i></span>'
   );
   $('.dove-container').css({ display: 'block' });
   $('#CreateDove').modal('toggle');
   pigeonFly(50, 'right', 1000);
+});
+
+$('[data-target="dove"]').click(function() {
+  $('[data-target="kill-dove"]').html('');
+  killDove();
 });
 
 // cria o usuario
@@ -44,15 +52,16 @@ $('[data-target="create-user"]').on('click', function(e) {
 $('[data-target="create-inbox"]').on('click', function(e) {
   e.preventDefault();
   maximoCaixaMensagens = $('#inbox').val();
-  var inboxes = $('[data-target="inboxes"]');
-  inboxes.html(
-    '<span class="m-1 badge badge-dark">' +
-      maximoCaixaMensagens +
-      ' <i class="fas fa-inbox"></i></span>'
-  );
-
+  atualizarCaixaDeEntrada(maximoCaixaMensagens);
   $('#CreateInbox').modal('toggle');
 });
+
+function atualizarCaixaDeEntrada(numInbox) {
+  var inboxes = $('[data-target="inboxes"]');
+  inboxes.html(
+    '<span class="m-1 badge badge-dark">' + numInbox + ' <i class="fas fa-inbox"></i></span>'
+  );
+}
 // verifica se existe ao menos um usuario e um pombo
 $(document).ready(function() {
   setInterval(function() {
