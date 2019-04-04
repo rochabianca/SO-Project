@@ -14,19 +14,15 @@ $('[data-target="create-dove"]').on('click', function(e) {
   pigeonFly(50, 'right', 1000);
 });
 
-function HelloWorld() {
-  print('hello');
-}
-
 // cria o usuario
 $('[data-target="create-user"]').on('click', function(e) {
   e.preventDefault();
-  countUsers++;
   // tempo de escrita
-  javaobj.criarUsuario(10);
+  var id = javaobj.criarUsuario(10);
+  console.log(id);
   console.log('criou usuario');
   $('[data-target="users"]').append(
-    '<span class="m-1 badge badge-primary">' + countUsers + ' <i class="fas fa-user"></i></span>'
+    '<span class="m-1 badge badge-primary">' + id + ' <i class="fas fa-user"></i></span>'
   );
 
   $('#CreateUser').modal('toggle');
@@ -42,12 +38,16 @@ $(document).ready(function() {
     }
   }, 300);
 });
+
 function killDove() {
+  $('.dove-container').css({ display: 'none' });
   console.log('kill the dove');
+  javaobj.matarPombo();
 }
 
 function killUser(id) {
   console.log(id);
+  javaobj.matarUsuario(id);
 }
 
 function pigeonFly(pace, direction, timePace) {
@@ -55,7 +55,6 @@ function pigeonFly(pace, direction, timePace) {
   var walkPace = screenSIze / pace;
   var totalWalked = 0;
 
-  console.log(screenSIze);
   setInterval(function() {
     if (screenSIze - 100 > totalWalked) {
       if (direction == 'right') {
