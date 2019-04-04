@@ -43,11 +43,11 @@ $('[data-target="create-user"]').on('click', function(e) {
 
 $('[data-target="create-inbox"]').on('click', function(e) {
   e.preventDefault();
-  numeroDeMensagens = $('#inbox').val();
+  maximoCaixaMensagens = $('#inbox').val();
   var inboxes = $('[data-target="inboxes"]');
   inboxes.html(
     '<span class="m-1 badge badge-dark">' +
-      numeroDeMensagens +
+      maximoCaixaMensagens +
       ' <i class="fas fa-inbox"></i></span>'
   );
 
