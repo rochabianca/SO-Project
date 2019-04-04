@@ -1,5 +1,18 @@
 var countUsers = 0;
 var countDoves = 0;
+var maximoCaixaMensagens = 0;
+
+function updateCaixaMensagens(numeroDeMensagens) {
+  // atualizar o numero de mensagens no icone
+}
+
+function mudancaEstadoPomboCorreio(estado) {
+  // mudar a cor do pombo de acordo com os estados
+}
+
+function mudancaEstadoUsuario(id, estado) {
+  // mudar a cor do usuario de acordo com os estados
+}
 // cria o pombo
 $('[data-target="create-dove"]').on('click', function(e) {
   e.preventDefault();
@@ -28,6 +41,18 @@ $('[data-target="create-user"]').on('click', function(e) {
   $('#CreateUser').modal('toggle');
 });
 
+$('[data-target="create-inbox"]').on('click', function(e) {
+  e.preventDefault();
+  numeroDeMensagens = $('#inbox').val();
+  var inboxes = $('[data-target="inboxes"]');
+  inboxes.html(
+    '<span class="m-1 badge badge-dark">' +
+      numeroDeMensagens +
+      ' <i class="fas fa-inbox"></i></span>'
+  );
+
+  $('#CreateInbox').modal('toggle');
+});
 // verifica se existe ao menos um usuario e um pombo
 $(document).ready(function() {
   setInterval(function() {
@@ -67,8 +92,10 @@ function pigeonFly(pace, direction, timePace) {
   }, timePace);
 }
 
+// iniciar
 $('[data-target="start"]').click(function() {
   $('[data-target="buttons"]').css({ display: 'none' });
+  javaobj.Iniciar(maximoCaixaMensagens);
   $('[data-target="start"]').html(
     '<button data-target="stop" class="btn btn-danger btn-block">Parar Processo</button>'
   );
