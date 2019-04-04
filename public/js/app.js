@@ -4,13 +4,13 @@ var countDoves = 0;
 $('[data-target="create-dove"]').on('click', function(e) {
   e.preventDefault();
   countDoves = 1;
-  console.log('criou pombo');
+  javaobj.criarPombo(10, 3, 10, 3);
   $('[data-target="dove"]').html(
     '<span class="m-1 badge badge-info">' + countDoves + ' <i class="fas fa-dove"></i></span>'
   );
   $('.dove-container').css({ display: 'block' });
   $('#CreateDove').modal('toggle');
-  pigeonFly(50, 'right');
+  pigeonFly(50, 'right', 1000);
 });
 
 function HelloWorld() {
@@ -47,24 +47,22 @@ function killUser(id) {
   console.log(id);
 }
 
-function pigeonFly(time, direction) {
+function pigeonFly(pace, direction, timePace) {
   var screenSIze = $(window).width();
-  var walkPace = screenSIze / time;
+  var walkPace = screenSIze / pace;
   var totalWalked = 0;
 
   console.log(screenSIze);
   setInterval(function() {
-    if (screenSIze > totalWalked) {
+    if (screenSIze - 100 > totalWalked) {
       if (direction == 'right') {
-        console.log(walkPace);
         pace = totalWalked + walkPace;
         console.log(pace);
         $('.pigeon img').css({ left: pace });
-        totalWalked += pace;
-        console.log(totalWalked);
+        totalWalked = pace;
       }
     }
-  }, 1000);
+  }, timePace);
 }
 
 $('[data-target="start"]').click(function() {
