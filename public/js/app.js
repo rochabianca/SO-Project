@@ -95,7 +95,7 @@ function pigeonFly(pace, direction, timePace) {
 // iniciar
 $('[data-target="start"]').click(function() {
   $('[data-target="buttons"]').css({ display: 'none' });
-  javaobj.Iniciar(maximoCaixaMensagens);
+  javaobj.iniciar(maximoCaixaMensagens);
   $('[data-target="start"]').html(
     '<button data-target="stop" class="btn btn-danger btn-block">Parar Processo</button>'
   );
