@@ -19,7 +19,7 @@ $('[data-target="create-dove"]').on('click', function(e) {
   e.preventDefault();
   countDoves = 1;
   //numero mensagens, tempo carga, tempo voo, tempo descarga
-  // javaobj.criarPombo(10, 3, 10, 3);
+  javaobj.criarPombo(10, 3, 10, 3);
   $('[data-target="dove"]').html(
     '<span data-target="kill-dove" class="m-1 badge badge-info dove">' +
       countDoves +
@@ -39,8 +39,7 @@ $('[data-target="dove"]').click(function() {
 $('[data-target="create-user"]').on('click', function(e) {
   e.preventDefault();
   // tempo de escrita
-  id = 10;
-  // var id = javaobj.criarUsuario(10);
+  var id = javaobj.criarUsuario(10);
   console.log(id);
   console.log('criou usuario');
   $('[data-target="users"]').append(
@@ -105,7 +104,7 @@ function pigeonFly(pace, direction, timePace) {
 // iniciar
 $('[data-target="start"]').click(function() {
   $('[data-target="buttons"]').css({ display: 'none' });
-  // javaobj.iniciar(maximoCaixaMensagens);
+  javaobj.iniciar(maximoCaixaMensagens);
   $('[data-target="start"]').html(
     '<button data-target="stop" class="btn btn-danger btn-block">Parar Processo</button>'
   );
