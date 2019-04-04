@@ -19,7 +19,7 @@ $('[data-target="create-dove"]').on('click', function(e) {
   e.preventDefault();
   countDoves = 1;
   //numero mensagens, tempo carga, tempo voo, tempo descarga
-  // javaobj.criarPombo(10, 3, 10, 3);
+  javaobj.criarPombo(10, 3, 10, 3);
   $('[data-target="dove"]').html(
     '<span data-target="kill-dove" class="m-1 badge badge-info dove">' +
       countDoves +
