@@ -39,7 +39,9 @@ $('[data-target="dove"]').click(function() {
 $('[data-target="create-user"]').on('click', function(e) {
   e.preventDefault();
   // tempo de escrita
-  var id = javaobj.criarUsuario(10);
+  var tempoEscrita = $('#tempo-escrita').val();
+  var id;
+  id = javaobj.criarUsuario(tempoEscrita);
   console.log(id);
   console.log('criou usuario');
   $('[data-target="users"]').append(
@@ -104,17 +106,14 @@ function pigeonFly(pace, direction, timePace) {
 // iniciar
 $('[data-target="start"]').click(function() {
   $('[data-target="buttons"]').css({ display: 'none' });
+  $('[data-target="start"]').css({ display: 'none', visibility: 'hidden' });
+  $('[data-target="stop"]').css({ display: 'block', visibility: 'visible' });
   javaobj.iniciar(maximoCaixaMensagens);
-  $('[data-target="start"]').html(
-    '<button data-target="stop" class="btn btn-danger btn-block">Parar Processo</button>'
-  );
 });
 
 $('[data-target="stop"]').click(function() {
-  console.log('stop');
   $('[data-target="buttons"]').css({ display: 'block' });
+  $('[data-target="start"]').css({ display: 'block', visibility: 'visible' });
+  $('[data-target="stop"]').css({ display: 'none', visibility: 'hidden' });
   javaobj.parar();
-  $('[data-target="start"]').html(
-    '<button data-target="start" class="btn btn-success btn-block">Começar</button>'
-  );
 });
