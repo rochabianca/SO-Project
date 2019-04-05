@@ -23,9 +23,21 @@
     <section class="bg">
       <div class="container">
         <!-- Tela inicial -->
-        <div class="row">
+        <div class="row justify-content-between align-items-start">
+          <div class="col-md-3 bg-white p-3 rounded-lg box-shadow start-window">
+            <h3 class="lead">Legendas</h3>
+            <div>
+              <span class="badge badge-success">Escrevendo / Voando</span>
+            </div>
+            <div>
+              <span class="badge badge-secondary">Bloqueado</span>
+            </div>
+            <div>
+              <span class="badge badge-warning">Carregando / Descarregando</span>
+            </div>
+          </div>
           <div
-            class="col-md-5 col-lg-3 text-center bg-white mx-auto p-3 rounded-lg box-shadow start-window"
+            class="col-md-5 col-lg-3 text-center bg-white p-3 rounded-lg box-shadow start-window"
           >
             <h3 class="lead ">Trabalho de SO</h3>
             <div data-target="buttons" class="my-3">
@@ -46,9 +58,9 @@
               </button>
             </div>
             <span data-target="inboxes"></span>
-            <span data-target="users"></span>
+            <span data-add="users"></span>
             <span data-target="dove"></span>
-            <div data-target="start" class="pt-3">
+            <div style="display:none" data-target="start" class="pt-3">
               <button class="btn btn-success btn-block">
                 Começar
               </button>
@@ -57,6 +69,10 @@
               Parar Processo
             </button>
           </div>
+          <div
+            data-target="console"
+            class="col-md-4 bg-white p-3 rounded-lg box-shadow start-window console list-group"
+          ></div>
         </div>
         <!-- Fim tela inicial -->
       </div>

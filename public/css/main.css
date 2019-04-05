@@ -37,3 +37,29 @@ body {
 .dove {
   cursor: pointer;
 }
+
+.user {
+  cursor: pointer;
+}
+
+.console {
+  max-height: 300px;
+  overflow: scroll;
+}
+
+.badge-BLOQUEADO {
+  background: #6c757d;
+  color: white;
+}
+
+.badge-VOANDO_IDA,
+.badge-VOANDO_VOLTA,
+.badge-ESCREVENDO {
+  background: #4ca746;
+  color: white;
+}
+
+.badge-CARREGANDO,
+.badge-DESCARREGANDO {
+  background: #f8c146;
+}
