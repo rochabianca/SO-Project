@@ -34,9 +34,13 @@ function mudancaEstadoUsuario(id, estado) {
 // cria o pombo
 $('[data-target="create-dove"]').on('click', function(e) {
   e.preventDefault();
+  var maxMensagens = $('#n').val();
+  var tempoCarga = $('#tempo-carga').val();
+  var tempoVoo = $('#tempo-voo').val();
+  var tempoDescarga = $('#tempo-descarga').val();
   countDoves = 1;
   //numero mensagens, tempo carga, tempo voo, tempo descarga
-  javaobj.criarPombo(10, 3, 10, 3);
+  javaobj.criarPombo(maxMensagens, tempoCarga, tempoVoo, tempoDescarga);
   $('[data-target="dove"]').html(
     '<span data-target="kill-dove" data-state="info" class="m-1 p-2 badge badge-info dove">' +
       countDoves +
