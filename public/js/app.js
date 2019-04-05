@@ -105,6 +105,7 @@ $(document).ready(function() {
 });
 
 function killDove() {
+  $('#criarPombo').css({ display: 'block', visibility: 'visible' });
   $('.dove-container').css({ display: 'none' });
   javaobj.matarPombo();
 }
@@ -113,32 +114,18 @@ function killUser(id) {
   javaobj.matarUsuario(id);
 }
 
-// function pigeonFly(pace, direction, timePace) {
-//   var screenSIze = $(window).width();
-//   var walkPace = screenSIze / pace;
-//   var totalWalked = 0;
-
-//   setInterval(function() {
-//     if (screenSIze - 100 > totalWalked) {
-//       if (direction == 'right') {
-//         pace = totalWalked + walkPace;
-//         $('.pigeon img').css({ left: pace });
-//         totalWalked = pace;
-//       }
-//     }
-//   }, timePace);
-// }
-
 // iniciar
 $('[data-target="start"]').click(function() {
-  $('[data-target="buttons"]').css({ display: 'none' });
+  $('#criarInbox').css({ display: 'none', visibility: 'hidden' });
+  $('#criarPombo').css({ display: 'none', visibility: 'hidden' });
   $('[data-target="start"]').css({ display: 'none', visibility: 'hidden' });
   $('[data-target="stop"]').css({ display: 'block', visibility: 'visible' });
   javaobj.iniciar(maximoCaixaMensagens);
 });
 
 $('[data-target="stop"]').click(function() {
-  $('[data-target="buttons"]').css({ display: 'block' });
+  $('#criarInbox').css({ display: 'block', visibility: 'visible' });
+  $('#criarPombo').css({ display: 'block', visibility: 'visible' });
   $('[data-add="users"]').html('');
   $('[data-target="dove"]').html('');
   $('[data-target="start"]').css({ display: 'block', visibility: 'visible' });
