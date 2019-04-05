@@ -43,7 +43,7 @@ body {
 }
 
 .console {
-  max-height: 300px;
+  max-height: 100vh;
   overflow: scroll;
 }
 

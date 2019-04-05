@@ -76,7 +76,6 @@ $('[data-target="create-user"]').on('click', function(e) {
 
 $('[data-add="users"]').on('click', function(e) {
   var id = '#' + e.target.id;
-  console.log(id);
   $(id).remove();
   killUser(e.target.id);
 });
@@ -107,31 +106,28 @@ $(document).ready(function() {
 
 function killDove() {
   $('.dove-container').css({ display: 'none' });
-  console.log('kill the dove');
   javaobj.matarPombo();
 }
 
 function killUser(id) {
-  console.log(id);
   javaobj.matarUsuario(id);
 }
 
-function pigeonFly(pace, direction, timePace) {
-  var screenSIze = $(window).width();
-  var walkPace = screenSIze / pace;
-  var totalWalked = 0;
+// function pigeonFly(pace, direction, timePace) {
+//   var screenSIze = $(window).width();
+//   var walkPace = screenSIze / pace;
+//   var totalWalked = 0;
 
-  setInterval(function() {
-    if (screenSIze - 100 > totalWalked) {
-      if (direction == 'right') {
-        pace = totalWalked + walkPace;
-        console.log(pace);
-        $('.pigeon img').css({ left: pace });
-        totalWalked = pace;
-      }
-    }
-  }, timePace);
-}
+//   setInterval(function() {
+//     if (screenSIze - 100 > totalWalked) {
+//       if (direction == 'right') {
+//         pace = totalWalked + walkPace;
+//         $('.pigeon img').css({ left: pace });
+//         totalWalked = pace;
+//       }
+//     }
+//   }, timePace);
+// }
 
 // iniciar
 $('[data-target="start"]').click(function() {
